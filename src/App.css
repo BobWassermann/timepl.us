@@ -1,0 +1,23 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: AcuminPro-Bold;
+}
+
+.App {
+  width: 90%;
+  display: block;
+  margin: 5% auto;
+}
+
+.App h1 {
+  font-size: 48px;
+  color: #FFFFFF;
+  width: 260px;
+}
+
+.App hr {
+  border-color: #fff;
+  opacity: 0.6;
+  margin: 25px 0;
+}

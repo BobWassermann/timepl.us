@@ -1,0 +1,23 @@
+.Timeslot {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.Timeslot--open {
+  opacity: 0.6;
+}
+
+.Timeslot--total {
+  color: #00FFC6;
+}
+
+.Timeslot input {
+  background: none;
+  color: #fff;
+  font-size: 36px;
+  font-family: AcuminPro-Bold;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
