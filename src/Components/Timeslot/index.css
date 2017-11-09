@@ -25,9 +25,13 @@
   line-height: 1.4em;
 }
 
+.Timeslot.Timeslot--total {
+  background: #000;
+}
+
 .Timeslot.Timeslot--total span,
 .Timeslot.Timeslot--total input {
-  color: #000;
+  color: #fff;
 }
 
 .Timeslot input {

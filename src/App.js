@@ -8,7 +8,7 @@ class App extends Component {
     super(props)
     this.state = {
       values: [
-        ['00', '00'],
+        ['00', '00']
       ],
       total: ['00', '00']
     }
@@ -18,6 +18,9 @@ class App extends Component {
     const { name, value } = e.target
     const { values } = this.state
     values[i][Number(name)] = value
+    if (!values[i+1]) {
+      values[i+1] = ['00', '00']
+    }
     this.setState({
       values
     }, () => this.calculateTotal())
@@ -32,8 +35,20 @@ class App extends Component {
   }
 
   calculateTotal() {
-    this.setState({
-      total: this.state.values[0]
+    const { values } = this.state
+    let total = ['00', '00']
+    values.map(x => {
+      const h = x[0]
+      const m = x[1]
+      total[0] = Number(total[0]) + Number(h)
+      total[1] = Number(total[1]) + Number(m)
+      if (total[1] >= 60) {
+        total[0] = total[0] + 1
+        total[1] = total[1] - 60
+      }
+      this.setState({
+        total
+      })
     })
   }
 
