@@ -1,23 +1,45 @@
 .Timeslot {
   font-size: 36px;
   margin: 15px 0;
+  background: #fff;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 700px;
 }
 
 .Timeslot--open {
   opacity: 0.6;
 }
 
-.Timeslot--total {
-  color: #00FFC6;
+.Timeslot > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.Timeslot > div > span {
+  width: 0.5em;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+.Timeslot.Timeslot--total span,
+.Timeslot.Timeslot--total input {
+  color: #000;
 }
 
 .Timeslot input {
   background: none;
-  color: #fff;
+  color: #000;
   font-size: 36px;
-  font-family: AcuminPro-Bold;
+  font-family: "Heebo", sans-serif;
   outline: none;
   margin: 0;
   padding: 0;
   border: none;
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
 }

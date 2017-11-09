@@ -10,46 +10,52 @@ class App extends Component {
       values: [
         ['00', '00'],
       ],
-      v: [
-        ['00', '00']
-      ]
+      total: ['00', '00']
     }
   }
 
-  handleTimeSlot(i, e) {
+  handleTime(i, e) {
     const { name, value } = e.target
-    let arr = [
-      ['00', '00']
-    ]
-    arr[i][Number(name)] = value
-    console.log(arr)
-
+    const { values } = this.state
+    values[i][Number(name)] = value
     this.setState({
-      v: [i][Number(name)] = value.toString
-    }, () => {
-      console.log(this.state.v)
+      values
+    }, () => this.calculateTotal())
+  }
+
+  handleHours(i, e) {
+    this.handleTime(i, e)
+  }
+
+  handleMinutes(i, e) {
+    this.handleTime(i, e)
+  }
+
+  calculateTotal() {
+    this.setState({
+      total: this.state.values[0]
     })
   }
 
   render() {
-    const { values } = this.state
+    const { total, values } = this.state
     return (
       <div className="App">
-        <h1>Time Calculator</h1>
-        <hr />
+        <h1>Time<br />calculator</h1>
 
         {values.map((x, i) => {
           return <Timeslot
             key={`Timeslot_${i}`}
             variant="open"
             value={x}
-            method={e => this.handleTimeSlot(i, e)}  />
+            hourMethod={e => this.handleHours(i, e)}
+            minuteMethod={e => this.handleMinutes(i, e)}  />
         })}
 
-        <Timeslot variant="total" value={'00:12'} />
+        <Timeslot variant="total" value={total} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -3,30 +3,23 @@ import './index.css';
 
 export default class Timeslot extends Component {
   render() {
-    const { method, value, variant } = this.props;
-    console.log(value)
+    const { hourMethod, minuteMethod, value, variant } = this.props;
     return (
       <div className={`Timeslot Timeslot--${variant}`}>
-        {variant !== 'total' &&
-          <div>
-            <input
-              type="text"
-              name="0"
-              value={value[0] ? value[0] : '00'}
-              onChange={method} />
+        <div>
+          <input
+            type="text"
+            name="0"
+            value={value[0] ? value[0] : '00'}
+            onChange={hourMethod} />
 
-              <span>:</span>
+          <span>:</span>
 
-              <input type="text"
-                name="1"
-                value={value[1] ? value[1] : '00'}
-                onChange={method} />
-          </div>
-        }
-
-        {variant === 'total' &&
-          <span>{value}</span>}
-
+          <input type="text"
+            name="1"
+            value={value[1] ? value[1] : '00'}
+            onChange={minuteMethod} />
+        </div>
       </div>
     )
   }
