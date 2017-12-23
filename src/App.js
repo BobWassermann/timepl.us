@@ -56,7 +56,7 @@ class App extends Component {
     const { total, values } = this.state
     return (
       <div className="App">
-        <h1>Time<br />calculator</h1>
+        <h1>Timepl.us</h1>
 
         {values.map((x, i) => {
           return <Timeslot
