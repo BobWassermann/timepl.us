@@ -8,7 +8,7 @@ class App extends Component {
     super(props)
     this.state = {
       values: [
-        ['00', '00']
+        ['', '']
       ],
       total: ['00', '00']
     }
@@ -18,9 +18,6 @@ class App extends Component {
     const { name, value } = e.target
     const { values } = this.state
     values[i][Number(name)] = value
-    if (!values[i+1]) {
-      values[i+1] = ['00', '00']
-    }
     this.setState({
       values
     }, () => this.calculateTotal())
@@ -46,6 +43,13 @@ class App extends Component {
         total[0] = total[0] + 1
         total[1] = total[1] - 60
       }
+
+      total.map((x, i) => {
+        if (x < 10) {
+          total[i] = `0${x}`
+        }
+      })
+
       this.setState({
         total
       })
@@ -58,6 +62,8 @@ class App extends Component {
       <div className="App">
         <h1>Timepl.us</h1>
 
+        <Timeslot variant="total" value={total} />
+
         {values.map((x, i) => {
           return <Timeslot
             key={`Timeslot_${i}`}
@@ -67,7 +73,6 @@ class App extends Component {
             minuteMethod={e => this.handleMinutes(i, e)}  />
         })}
 
-        <Timeslot variant="total" value={total} />
       </div>
     )
   }
